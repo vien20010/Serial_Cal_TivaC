@@ -11,24 +11,21 @@
 #include "driverlib/pin_map.h"
 #include "driverlib/sysctl.h"
 #include "driverlib/uart.h"
+#include "driverlib/fpu.h"
 #include "utils/uartstdio.h"
 #include <string.h>
 #include "Mylib/Serial_Cal.h"
 #include "debug.h"
 
-#define Enter 13
-#define Plus '+'
-#define Minus '-'
-#define Multiply '*'
-#define Divide '/'
-#define Exponent '^'
-#define Factorial '!'
 
 char check_uart = 0;
-char str[50];
+char str[100];
 char Operation;
 int32_t num1=0,num2=0;
-signed long Op1, Op2, Key, Sign, mul;
+int64_t Result=0;
+
+float Result2=0,num3=0;
+
 unsigned char msg1[] = " CALCULATOR PROGRAM";
 unsigned char msg2[] = " Enter First Number: ";
 unsigned char msg3[] = " Enter Second Number: ";
@@ -59,7 +56,7 @@ int main(void)
 
     while (1) //let interrupt handler do the UART echo function
     {
-
+        DBG("%f\n",Result2);
         DBG("%s\n",msg1);
         DBG("%s\n",msg2);
         while (check_uart!=1);
@@ -83,10 +80,25 @@ int main(void)
         switch (Operation)
         {
         case '+':
-            DBG("%d\n",num1+num2);
+            Result=num1+num2;
+            DBG("%d\n",Result);
             break;
         case '-':
-            DBG("%d\n",num1-num2);
+            Result=num1-num2;
+            DBG("%d\n",Result);
+            break;
+        case '*':
+            Result=num1*num2;
+            DBG("%d\n",Result);
+            break;
+        case '/':
+            if (num2==0)
+                baoloi();
+            DBG("%d\n",num1);
+            num3=(float)num1;
+            UARTprintf("%f\n",num3);
+            Result2=(float)num1/(float)num2;
+            DBG("%f\n",Result2);
             break;
         }
     }

@@ -25,6 +25,7 @@ main.obj: C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/interrupt.h
 main.obj: C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/pin_map.h
 main.obj: C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/sysctl.h
 main.obj: C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/uart.h
+main.obj: C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/fpu.h
 main.obj: C:/ti/TivaWare_C_Series-2.2.0.295/utils/uartstdio.h
 main.obj: C:/ti/ccs1000/ccs/tools/compiler/ti-cgt-arm_20.2.0.LTS/include/stdarg.h
 main.obj: ../Mylib/Serial_Cal.h
@@ -55,6 +56,7 @@ C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/interrupt.h:
 C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/pin_map.h: 
 C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/sysctl.h: 
 C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/uart.h: 
+C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/fpu.h: 
 C:/ti/TivaWare_C_Series-2.2.0.295/utils/uartstdio.h: 
 C:/ti/ccs1000/ccs/tools/compiler/ti-cgt-arm_20.2.0.LTS/include/stdarg.h: 
 ../Mylib/Serial_Cal.h: 
