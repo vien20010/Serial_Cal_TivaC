@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <stdint.h>
 #include <stdbool.h>
 #include <string.h>
@@ -17,92 +18,29 @@
 #include "Mylib/Serial_Cal.h"
 #include "debug.h"
 
-
-char check_uart = 0;
-char str[100];
-char Operation;
-int32_t num1=0,num2=0;
-int64_t Result=0;
-
-float Result2=0,num3=0;
-
-unsigned char msg1[] = " CALCULATOR PROGRAM";
-unsigned char msg2[] = " Enter First Number: ";
-unsigned char msg3[] = " Enter Second Number: ";
-unsigned char msg4[] = " Enter Operation: ";
-unsigned char msg5[] = " Result = ";
-
+char check_uart=0;
+int32_t num1 = 0, num2 = 0;
 
 void InitConsole(void);
 void UARTIntHandler(void);
-
-
 
 int main(void)
 {
     SysCtlClockSet(SYSCTL_SYSDIV_4 | SYSCTL_USE_PLL | SYSCTL_OSC_MAIN | SYSCTL_XTAL_16MHZ);
 
-
     InitConsole();
 
-    SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOF); //enable GPIO port for LED
+    SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOF);        //enable GPIO port for LED
     GPIOPinTypeGPIOOutput(GPIO_PORTF_BASE, GPIO_PIN_2); //enable pin for LED PF2
 
-    IntMasterEnable(); //enable processor interrupts
-    IntEnable(INT_UART0); //enable the UART interrupt
+    IntMasterEnable();                                    //enable processor interrupts
+    IntEnable(INT_UART0);                                 //enable the UART interrupt
     UARTIntEnable(UART0_BASE, UART_INT_RX | UART_INT_RT); //only enable RX and TX interrupts
 
-
-
-    while (1) //let interrupt handler do the UART echo function
+    while (1)
     {
-        DBG("%f\n",Result2);
-        DBG("%s\n",msg1);
-        DBG("%s\n",msg2);
-        while (check_uart!=1);
-        //Check_Number(b);
-        check_uart=0;
-        Check_Number(str);
-        num1=atoi(str);
-        //UARTprintf("%d\n",num);
-        DBG("%s\n",msg4);
-        while(check_uart!=1);
-        //checkoper(*b);
-        Check_Oper(str);
-        Operation=*str;
-        check_uart=0;
-        DBG("%s\n",msg3);
-        while(check_uart!=1);
-        Check_Number(str);
-        check_uart=0;
-        num2=atoi(str);
-        DBG("%s\n",msg5);
-        switch (Operation)
-        {
-        case '+':
-            Result=num1+num2;
-            DBG("%d\n",Result);
-            break;
-        case '-':
-            Result=num1-num2;
-            DBG("%d\n",Result);
-            break;
-        case '*':
-            Result=num1*num2;
-            DBG("%d\n",Result);
-            break;
-        case '/':
-            if (num2==0)
-                baoloi();
-            DBG("%d\n",num1);
-            num3=(float)num1;
-            UARTprintf("%f\n",num3);
-            Result2=(float)num1/(float)num2;
-            DBG("%f\n",Result2);
-            break;
-        }
+        Serial_Cal();
     }
-
 }
 
 void InitConsole(void)
@@ -146,20 +84,19 @@ void InitConsole(void)
 void UARTIntHandler(void)
 {
     uint32_t ui32Status;
-    static uint32_t i=0;
+    static uint32_t i = 0;
     ui32Status = UARTIntStatus(UART0_BASE, true); //get interrupt status
 
     UARTIntClear(UART0_BASE, ui32Status); //clear the asserted interrupts
-    while (UARTCharsAvail(UART0_BASE)) //loop while there are chars
+    while (UARTCharsAvail(UART0_BASE))    //loop while there are chars
     {
-        *(str+i)=UARTCharGetNonBlocking(UART0_BASE);
-        UARTCharPutNonBlocking(UART0_BASE, *(str+i)); //echo character
-        if(*(str+i)=='\n')
+        *(str + i) = UARTCharGetNonBlocking(UART0_BASE);
+        UARTCharPutNonBlocking(UART0_BASE, *(str + i)); //echo character
+        if (*(str + i) == '\n')
         {
-            check_uart=1;
-            *(str+i-1)='\0';
-            //DBG("%c\n",*(b+i));
-            i=0;
+            check_uart = 1;
+            *(str + i - 1) = '\0';
+            i = 0;
             break;
         }
         i++;
