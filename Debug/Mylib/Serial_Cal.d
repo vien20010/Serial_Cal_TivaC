@@ -17,6 +17,9 @@ Mylib/Serial_Cal.obj: C:/ti/ccs1000/ccs/tools/compiler/ti-cgt-arm_20.2.0.LTS/inc
 Mylib/Serial_Cal.obj: C:/ti/ccs1000/ccs/tools/compiler/ti-cgt-arm_20.2.0.LTS/include/math.h
 Mylib/Serial_Cal.obj: C:/ti/ccs1000/ccs/tools/compiler/ti-cgt-arm_20.2.0.LTS/include/_defs.h
 Mylib/Serial_Cal.obj: C:/ti/ccs1000/ccs/tools/compiler/ti-cgt-arm_20.2.0.LTS/include/machine/_limits.h
+Mylib/Serial_Cal.obj: C:/ti/ccs1000/ccs/tools/compiler/ti-cgt-arm_20.2.0.LTS/include/stdio.h
+Mylib/Serial_Cal.obj: C:/ti/ccs1000/ccs/tools/compiler/ti-cgt-arm_20.2.0.LTS/include/stdarg.h
+Mylib/Serial_Cal.obj: C:/ti/ccs1000/ccs/tools/compiler/ti-cgt-arm_20.2.0.LTS/include/stdlib.h
 Mylib/Serial_Cal.obj: C:/ti/TivaWare_C_Series-2.2.0.295/inc/hw_ints.h
 Mylib/Serial_Cal.obj: C:/ti/TivaWare_C_Series-2.2.0.295/inc/hw_memmap.h
 Mylib/Serial_Cal.obj: C:/ti/TivaWare_C_Series-2.2.0.295/inc/hw_types.h
@@ -26,7 +29,6 @@ Mylib/Serial_Cal.obj: C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/pin_map.h
 Mylib/Serial_Cal.obj: C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/sysctl.h
 Mylib/Serial_Cal.obj: C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/uart.h
 Mylib/Serial_Cal.obj: C:/ti/TivaWare_C_Series-2.2.0.295/utils/uartstdio.h
-Mylib/Serial_Cal.obj: C:/ti/ccs1000/ccs/tools/compiler/ti-cgt-arm_20.2.0.LTS/include/stdarg.h
 Mylib/Serial_Cal.obj: E:/STUDY/192_semester/Embedded_System_Programming/Project/Serial_Calculator/debug.h
 
 ../Mylib/Serial_Cal.c: 
@@ -46,6 +48,9 @@ C:/ti/ccs1000/ccs/tools/compiler/ti-cgt-arm_20.2.0.LTS/include/string.h:
 C:/ti/ccs1000/ccs/tools/compiler/ti-cgt-arm_20.2.0.LTS/include/math.h: 
 C:/ti/ccs1000/ccs/tools/compiler/ti-cgt-arm_20.2.0.LTS/include/_defs.h: 
 C:/ti/ccs1000/ccs/tools/compiler/ti-cgt-arm_20.2.0.LTS/include/machine/_limits.h: 
+C:/ti/ccs1000/ccs/tools/compiler/ti-cgt-arm_20.2.0.LTS/include/stdio.h: 
+C:/ti/ccs1000/ccs/tools/compiler/ti-cgt-arm_20.2.0.LTS/include/stdarg.h: 
+C:/ti/ccs1000/ccs/tools/compiler/ti-cgt-arm_20.2.0.LTS/include/stdlib.h: 
 C:/ti/TivaWare_C_Series-2.2.0.295/inc/hw_ints.h: 
 C:/ti/TivaWare_C_Series-2.2.0.295/inc/hw_memmap.h: 
 C:/ti/TivaWare_C_Series-2.2.0.295/inc/hw_types.h: 
@@ -55,5 +60,4 @@ C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/pin_map.h:
 C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/sysctl.h: 
 C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/uart.h: 
 C:/ti/TivaWare_C_Series-2.2.0.295/utils/uartstdio.h: 
-C:/ti/ccs1000/ccs/tools/compiler/ti-cgt-arm_20.2.0.LTS/include/stdarg.h: 
 E:/STUDY/192_semester/Embedded_System_Programming/Project/Serial_Calculator/debug.h: 
