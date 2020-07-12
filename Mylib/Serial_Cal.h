@@ -14,6 +14,8 @@
 #include <stdbool.h>
 #include <string.h>
 #include <math.h>
+#include <stdio.h>
+#include <stdlib.h>
 #include "inc/hw_ints.h"
 #include "inc/hw_memmap.h"
 #include "inc/hw_types.h"
@@ -25,8 +27,27 @@
 #include "utils/uartstdio.h"
 #include "debug.h"
 
-void baoloi();
+#define PI              3.14159265
+#define msg1            " CALCULATOR PROGRAM"
+#define msg2            " Enter First Number: "
+#define msg3            " Enter Second Number: "
+#define msg4            " Enter Operation: "
+#define msg5            " Result = "
+
+extern char check_uart;
+extern int32_t num1 , num2;
+
+char str[50];
+char Operation;
+
+char Result[50];
+
+
+void Error_Notice(void);
 void Check_Number(char *data);
 void Check_Oper(char *data);
-
+uint32_t Factorial(int32_t n);
+bool Prime(int32_t n);
+void Integer_Fac(int32_t n);
+void Serial_Cal(void);
 #endif /* MYLIB_SERIAL_CAL_H_ */
