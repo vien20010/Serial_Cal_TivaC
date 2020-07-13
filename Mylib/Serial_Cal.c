@@ -32,9 +32,10 @@ void Error_Notice(void)
 void Check_Number(char *data)
 {
     uint16_t j;
-    for (j = 1; *(data + j) != '\0'; j++)
+    for (j = 0; *(data + j) != '\0'; j++)
     {
         /* Check each byte data if it isn't number */
+        DBG("%c\n",*(data+j));
         if ((*(data + j) < '0') || (*(data + j) > '9')) 
             Error_Notice();
     }
@@ -49,7 +50,7 @@ void Check_Number(char *data)
 void Check_Oper(char *data)
 {
     /* The condition is Operator is 1 byte so we check the next bye
-     If it isn't exit byte --> Systax Error*/
+     If it isn't exit byte --> Syntax Error*/
     if (*(data + 1) != '\0')
         Error_Notice();
 
